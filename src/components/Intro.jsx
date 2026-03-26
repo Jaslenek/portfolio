@@ -154,6 +154,25 @@ const Intro = () => {
           </div>
 
         </div>
+
+        {/* Subdued Achievements (Natural Extension of Stats) */}
+        <div className="mt-14 flex flex-wrap justify-center items-center gap-4 sm:gap-6 w-full px-4">
+          {[
+            { icon: "🏅", text: "Dean’s List", sub: "(Top 10%)", hoverColor: "group-hover:text-blue-700", subColor: "text-blue-600/70", borderColor: "border-blue-100/80", shadowHover: "hover:shadow-blue-500/10" },
+            { icon: "🥈", text: "1st Runner-Up", sub: "(SpeakUp Scenes)", hoverColor: "group-hover:text-indigo-700", subColor: "text-indigo-600/70", borderColor: "border-indigo-100/80", shadowHover: "hover:shadow-indigo-500/10" },
+            { icon: "☁️", text: "Elite Category", sub: "(NPTEL Cloud Computing)", hoverColor: "group-hover:text-sky-700", subColor: "text-sky-600/70", borderColor: "border-sky-100/80", shadowHover: "hover:shadow-sky-500/10" }
+          ].map((ach, idx) => (
+            <div 
+              key={idx} 
+              className={`group flex items-center gap-3 bg-white/50 backdrop-blur-md px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border ${ach.borderColor} shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] ${ach.shadowHover} hover:-translate-y-1 hover:bg-white/80 transition-all duration-300 cursor-default`}
+            >
+              <span className="text-xl sm:text-2xl group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">{ach.icon}</span>
+              <span className={`text-gray-800 font-bold text-[13px] sm:text-[15px] tracking-wide ${ach.hoverColor} transition-colors duration-300`}>
+                {ach.text} <span className={`${ach.subColor} font-semibold ml-1`}>{ach.sub}</span>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-24 opacity-50"><div className="border-t border-blue-200"></div></div>
