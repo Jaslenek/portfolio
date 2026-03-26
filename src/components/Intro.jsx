@@ -137,8 +137,8 @@ const Intro = () => {
             </div>
             <div>
               <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 font-extrabold text-5xl sm:text-6xl mb-2 tracking-tight">150+</h3>
-              <p className="text-gray-900 font-extrabold text-xl mb-1 capitalize tracking-wide">LeetCode</p>
-              <p className="text-gray-600 font-medium leading-snug">Problems solved, strengthening DSA logic and skills.</p>
+              <p className="text-gray-900 font-extrabold text-xl mb-1 uppercase tracking-wide">DSA Problems</p>
+              <p className="text-gray-600 font-medium leading-snug">Solved, strengthening logic and coding skills.</p>
             </div>
           </div>
 
@@ -156,20 +156,54 @@ const Intro = () => {
         </div>
 
         {/* Subdued Achievements (Natural Extension of Stats) */}
-        <div className="mt-14 flex flex-wrap justify-center items-center gap-4 sm:gap-6 w-full px-4">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           {[
-            { icon: "🏅", text: "Dean’s List", sub: "(Top 10%)", hoverColor: "group-hover:text-blue-700", subColor: "text-blue-600/70", borderColor: "border-blue-100/80", shadowHover: "hover:shadow-blue-500/10" },
-            { icon: "🥈", text: "1st Runner-Up", sub: "(SpeakUp Scenes)", hoverColor: "group-hover:text-indigo-700", subColor: "text-indigo-600/70", borderColor: "border-indigo-100/80", shadowHover: "hover:shadow-indigo-500/10" },
-            { icon: "☁️", text: "Elite Category", sub: "(NPTEL Cloud Computing)", hoverColor: "group-hover:text-sky-700", subColor: "text-sky-600/70", borderColor: "border-sky-100/80", shadowHover: "hover:shadow-sky-500/10" }
+            { 
+              icon: <svg className="w-10 h-10 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>,
+              title: "Dean’s List", 
+              desc: "Top 10% of students in college", 
+              gradient: "from-blue-500/10 to-blue-600/5",
+              borderColor: "border-blue-200/50",
+              textColor: "text-blue-600",
+              hoverShadow: "hover:shadow-blue-500/20",
+              hoverBorder: "hover:border-blue-300"
+            },
+            { 
+              icon: <svg className="w-10 h-10 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 10v2a7 7 0 01-14 0v-2M12 19v4m-4 0h8M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" /></svg>, 
+              title: "1st Runner-Up", 
+              desc: "SpeakUp Scenes (soft skills)", 
+              gradient: "from-indigo-500/10 to-indigo-600/5",
+              borderColor: "border-indigo-200/50",
+              textColor: "text-indigo-600",
+              hoverShadow: "hover:shadow-indigo-500/20",
+              hoverBorder: "hover:border-indigo-300"
+            },
+            { 
+              icon: <svg className="w-10 h-10 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>, 
+              title: "Elite Category", 
+              desc: "NPTEL Cloud Computing", 
+              gradient: "from-sky-500/10 to-sky-600/5",
+              borderColor: "border-sky-200/50",
+              textColor: "text-sky-600",
+              hoverShadow: "hover:shadow-sky-500/20",
+              hoverBorder: "hover:border-sky-300"
+            }
           ].map((ach, idx) => (
             <div 
               key={idx} 
-              className={`group flex items-center gap-3 bg-white/50 backdrop-blur-md px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border ${ach.borderColor} shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] ${ach.shadowHover} hover:-translate-y-1 hover:bg-white/80 transition-all duration-300 cursor-default`}
+              className={`group relative bg-white/70 backdrop-blur-xl p-8 sm:p-10 rounded-3xl border ${ach.borderColor} ${ach.hoverBorder} shadow-xl ${ach.hoverShadow} hover:-translate-y-2 hover:scale-[1.03] flex flex-col justify-center items-center text-center transition-all duration-500 overflow-hidden cursor-default`}
             >
-              <span className="text-xl sm:text-2xl group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">{ach.icon}</span>
-              <span className={`text-gray-800 font-bold text-[13px] sm:text-[15px] tracking-wide ${ach.hoverColor} transition-colors duration-300`}>
-                {ach.text} <span className={`${ach.subColor} font-semibold ml-1`}>{ach.sub}</span>
-              </span>
+              <div className={`absolute inset-0 bg-gradient-to-br ${ach.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
+              
+              <div className={`mb-5 ${ach.textColor} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 relative z-10`}>
+                {ach.icon}
+              </div>
+              <h3 className="text-gray-900 font-extrabold text-2xl sm:text-3xl mb-3 tracking-tight relative z-10 group-hover:text-gray-800">
+                {ach.title}
+              </h3>
+              <p className="text-gray-600 font-medium text-lg leading-snug relative z-10 max-w-[85%]">
+                {ach.desc}
+              </p>
             </div>
           ))}
         </div>
