@@ -318,7 +318,7 @@ const Intro = () => {
 
           {/* RIGHT: Download Button */}
           <div className="w-full xl:w-auto relative z-10 flex justify-center">
-            <a href="/Jaslene_Resume.pdf" download className="bg-white text-blue-700 flex items-center justify-center gap-3 px-10 py-4 rounded-xl font-extrabold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto">
+            <a href="/resume.pdf" download="resume.pdf" className="bg-white text-blue-700 flex items-center justify-center gap-3 px-10 py-4 rounded-xl font-extrabold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto">
               <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               Download Resume
             </a>
